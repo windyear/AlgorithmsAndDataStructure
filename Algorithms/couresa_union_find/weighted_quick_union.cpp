@@ -4,7 +4,7 @@ time: 2017-11-26
 */
 #include "weighted_quick_union.h"
 
-WeightedQuickUnion::WeightedQuickUnion(int N):klength(N){
+WeightedQuickUnion::WeightedQuickUnion(int N):klength(N),count(N){
     id = new int[klength];
     sizeoftree = new int[klength];
     for(int i = 0; i < klength; i++){
@@ -32,6 +32,7 @@ void WeightedQuickUnion::Union(int p, int q){
         id[qroot] = p;
         sizeoftree[p] += sizeoftree[q];
     }
+    count--;
 }
 
 int WeightedQuickUnion::Root(int number){
@@ -46,3 +47,6 @@ bool WeightedQuickUnion::IsConnected(int p, int q){
     return Root(p) == Root(q);
 }
 
+int WeightedQuickUnion::Count(){
+    return count;
+}

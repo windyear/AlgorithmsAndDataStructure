@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    /*cout << "Hello world!" << endl;
     cout << "Test UnionFind:" << endl;
     UnionFind test_unionfind(10);
     test_unionfind.Union(4, 3);
@@ -35,8 +35,34 @@ int main()
     weightedquickunion.Union(8, 99);
     weightedquickunion.Union(98, 7);
     cout << "Is 8 and 99 connected? " << endl << weightedquickunion.IsConnected(66, 99) <<endl;
-    cout << "Is 8 and 98 connected? " << endl << weightedquickunion.IsConnected(8, 98) <<endl;
+    cout << "Is 8 and 98 connected? " << endl << weightedquickunion.IsConnected(8, 98) <<endl;*/
 
-
+    //改良一下从标准输入中获取内容
+    //100万个数据时间非常长，跑不出来
+    /*int N;
+    cin >> N;
+    QuickUnion testquickunion(N);
+    int p, q;
+    while(cin >> p >> q){
+        if(testquickunion.IsConnected(p, q)){
+            continue;
+        }
+        testquickunion.Union(p, q);
+        cout << p << " " << q << endl;
+    }
+    cout << "components: " << testquickunion.Count() << endl;*/
+　　　　//优化之后十几秒就可以跑出来
+    int N;
+    cin >> N;
+    WeightedQuickUnion testweightedquickunion(N);
+    int p, q;
+    while(cin >> p >> q){
+        if(testweightedquickunion.IsConnected(p, q)){
+            continue;
+        }
+        testweightedquickunion.Union(p, q);
+        cout << p << " " << q << endl;
+    }
+    cout << "components: " << testweightedquickunion.Count() << endl;
     return 0;
 }

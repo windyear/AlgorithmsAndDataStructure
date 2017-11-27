@@ -16,10 +16,12 @@ public:
     void Union(int p, int q);
     int Root(int number);
     bool IsConnected(int p, int q);
+    int Count();
 private:
     const int klength;
     int* id;
     int* sizeoftree;
+    int count;
 };
 
 

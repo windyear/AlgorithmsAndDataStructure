@@ -7,6 +7,8 @@
  * 使用泛型编程可以实现处理不容数据类型的数组的排序。
  * 排序算法实现从小到大的排序
  */
+#ifndef SORTALGORITHM_BASESORT_H
+#define SORTALGORITHM_BASESORT_H
 #include <iostream>
 using namespace std;
 
@@ -17,7 +19,7 @@ public:
     int N;
     int* array;
 
-    Sort(int length, int* p_array):N(length), array(p_array){}
+    explicit Sort(int length, int* p_array):N(length), array(p_array){}
     ~Sort(){}
     bool IsShorted(){
         for(int i = 1; i < N; i++){
@@ -47,3 +49,4 @@ public:
         cout << endl;
     }
 };
+#endif

@@ -1,13 +1,11 @@
 //
 // Created by windyear_office on 17-11-28.
 //
-#include <iostream>
 #include "basesort.h"
-using namespace std;
 
 class SelectSort: public Sort{
 public:
-    SelectSort(int length, int* p_array):Sort(length, p_array){}
+    explicit SelectSort(int length, int* p_array):Sort(length, p_array){}
 
     void Select_Sort(){
         //每次选择一个最小值，然后交换到前面

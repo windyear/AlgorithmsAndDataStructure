@@ -1,6 +1,8 @@
 //
 // Created by windyear_office on 17-11-28.
 //
+#ifndef SORTALGORITHM_SELECT_SORT_H
+#define SORTALGORITHM_SELECT_SORT_H
 #include "basesort.h"
 
 class SelectSort: public Sort{
@@ -21,3 +23,4 @@ public:
         }
     }
 };
+#endif

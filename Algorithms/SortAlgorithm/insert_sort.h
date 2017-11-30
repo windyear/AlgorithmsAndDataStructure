@@ -34,4 +34,13 @@ public:
             }
         }
     }
+
+    void Insert_Sort2(){
+        //每次都找到元素应该放置的位置
+        for(int i = 1; i < N; i++){
+            for(int j = i; j > 0 && array[j] < array[j-1]; j--){
+                Exchange(j, j-1);
+            }
+        }
+    }
 };

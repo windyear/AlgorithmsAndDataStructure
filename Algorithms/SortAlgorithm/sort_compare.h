@@ -10,6 +10,7 @@
 #include "select_sort.h"
 #include "create_test_array.h"
 #include "insert_sort.h"
+#include "shell_sort.h"
 
 using namespace std;
 class SortCompare{
@@ -50,6 +51,7 @@ public:
                     break;
             }
         }else if(N == 100){
+            //块结束之后自动调用析构函数
             CreateTestArray<int, 100> test_select_array, test_insert_sort, test_insert_sort2;
             int *p_test_select_array = test_select_array.GetArrayAdress();
             int *p_test_insert_sort = test_insert_sort.GetArrayAdress();
@@ -76,6 +78,41 @@ public:
             }
         }else{
             cout << "Please input the number 1000 or 100!" << endl;
+        }
+    }
+    //1:shell sort; 2:insert sort; 3:select sort;
+    static void TestSort(int N, int type_of_sort){
+        switch(type_of_sort){
+            case 1:
+            {
+                CreateTestArray<int, 10000> test_array;
+                int* p_array = test_array.GetArrayAdress();
+                ShellSort shell_sort(N, p_array);
+                shell_sort.ShowArray();
+                shell_sort.Shell_Sort();
+                shell_sort.ShowArray();
+                break;
+            }
+            case 2:
+            {
+                CreateTestArray<int, 10000> test_array;
+                int* p_array = test_array.GetArrayAdress();
+                SelectSort select_sort(N, p_array);
+                select_sort.ShowArray();
+                select_sort.Select_Sort();
+                select_sort.ShowArray();
+                break;
+            }
+            case 3:
+            {
+                CreateTestArray<int, 10000> test_array;
+                int* p_array = test_array.GetArrayAdress();
+                InsertSort insert_sort(N, p_array);
+                insert_sort.ShowArray();
+                insert_sort.Insert_Sort();
+                insert_sort.ShowArray();
+                break;
+            }
         }
     }
 };

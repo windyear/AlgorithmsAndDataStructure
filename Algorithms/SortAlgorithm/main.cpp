@@ -16,7 +16,7 @@ void Test_Time_Of_Sort(){
 
 //测试排序
 void Test_Sort(){
-    cout << "Please input the length of array and the type of sort:(1 for shell sort, 2 for insert sort, 3 for select sort)" << endl;
+    cout << "Please input the length of array and the type of sort:(1 for shell sort, \n2 for insert sort, 3 for select sort, 4 for merge sort)" << endl;
     int length, type_of_sort;
     cin >> length >> type_of_sort;
     SortCompare::TestSort(length, type_of_sort);

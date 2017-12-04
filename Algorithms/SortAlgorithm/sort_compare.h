@@ -11,6 +11,7 @@
 #include "create_test_array.h"
 #include "insert_sort.h"
 #include "shell_sort.h"
+#include "merge_sort.h"
 
 using namespace std;
 class SortCompare{
@@ -113,6 +114,18 @@ public:
                 insert_sort.ShowArray();
                 break;
             }
+            case 4:
+            {
+                CreateTestArray<int, 1000> test_array;
+                int* p_array = test_array.GetArrayAdress();
+                MergeSort merge_sort(N, p_array);
+                merge_sort.ShowArray();
+                //这里注意传参数不要传错，数组是从下标为０开始的。
+                merge_sort.Merge_Sort(0, N-1);
+                merge_sort.ShowArray();
+            }
+            default:
+                break;
         }
     }
 };

@@ -61,7 +61,19 @@ public:
         Merge_Sort(middle + 1, high);
         Merge(low, middle, high);
     }
-
+//可以有一种自底向上的方法，不同于第一种自顶向下的分治法。
+//从两两合并开始，一直循环到最大的两个子数组合并，这里的关键是合并的连个子数组的大小sz,每次大小都翻倍。
+    void Merge_Sort2(int low, int high){
+        //数组长度
+        int length = N;
+        for(int sz = 1; sz < N; sz = 2 * sz){
+            //这里的数组下标很容易就会乱，要认真对待
+            //低索引值不能大于length - sz否则数组会越界。
+            for(int low = 0 ; low < length -sz ; low = low + sz + sz){
+                Merge(low, low + sz - 1, ((low + 2 * sz - 1) < (length - 1))?(low + 2 * sz - 1):(length - 1));
+            }
+        }
+    }
 private:
     int* temp_array;
 };

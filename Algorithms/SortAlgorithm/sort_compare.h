@@ -124,6 +124,16 @@ public:
                 merge_sort.Merge_Sort(0, N-1);
                 merge_sort.ShowArray();
             }
+            case 5:
+            {
+                CreateTestArray<int, 1000> test_array;
+                int* p_array = test_array.GetArrayAdress();
+                MergeSort merge_sort(N, p_array);
+                merge_sort.ShowArray();
+                //这里注意传参数不要传错，数组是从下标为０开始的。
+                merge_sort.Merge_Sort2(0, N-1);
+                merge_sort.ShowArray();
+            }
             default:
                 break;
         }

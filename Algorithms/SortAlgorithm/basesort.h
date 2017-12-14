@@ -34,6 +34,9 @@ public:
         if(p >= N || q >= N){
             cout << "error, out of the array index!" << endl;
         }
+        if(p == q){
+            return;
+        }
         int temp;
         temp = array[p];
         array[p] = array[q];

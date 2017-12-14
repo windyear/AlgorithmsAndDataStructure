@@ -12,6 +12,7 @@
 #include "insert_sort.h"
 #include "shell_sort.h"
 #include "merge_sort.h"
+#include "quick_short.h"
 
 using namespace std;
 class SortCompare{
@@ -133,6 +134,14 @@ public:
                 //这里注意传参数不要传错，数组是从下标为０开始的。
                 merge_sort.Merge_Sort2(0, N-1);
                 merge_sort.ShowArray();
+            }
+            case 6:{
+                CreateTestArray<int, 1000> test_array;
+                int* p_array = test_array.GetArrayAdress();
+                QuickSort quick_sort(N, p_array);
+                quick_sort.ShowArray();
+                quick_sort.Quick_Sort2(0, N - 1);
+                quick_sort.ShowArray();
             }
             default:
                 break;

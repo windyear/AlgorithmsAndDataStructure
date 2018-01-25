@@ -1,5 +1,6 @@
-#include "select_sort.h"
-#include "sort_compare.h"
+#include "Sort/select_sort.h"
+#include "Sort/sort_compare.h"
+#include "DynamicProgramming/zero_one_bag.h"
 
 using namespace std;
 //主函数封装每个不同的测试函数，需要测试的时候就调用该函数
@@ -24,7 +25,28 @@ void Test_Sort(){
     cin >> length >> type_of_sort;
     SortCompare::TestSort(length, type_of_sort);
 }
+
+//测试01背包问题的程序
+void Test_Zero_One_Bag(){
+    cout << "Please input the number of goods:";
+    int number_of_goods;
+    cin >> number_of_goods;
+    double* values_of_goods = new double[number_of_goods+1];
+    int* weight_of_goods = new int[number_of_goods];
+    cout << "Please input the value of goods and the weight of goods:";
+    values_of_goods[0] = 0;
+    weight_of_goods[0] = 0;
+    for(int i = 1; i < number_of_goods + 1; i++){
+        cin >> values_of_goods[i];
+        cin >> weight_of_goods[i];
+    }
+    int max_weight;
+    cout << "Please input the max weight of the bag:";
+    cin >> max_weight;
+    ZeroOneBag::Dynamic_Zero_One_Bag(values_of_goods,weight_of_goods,number_of_goods,max_weight);
+}
 int main() {
-    Test_Sort();
+    //Test_Sort();
+    Test_Zero_One_Bag();
     return 0;
 }

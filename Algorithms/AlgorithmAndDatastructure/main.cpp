@@ -77,9 +77,28 @@ void Test_Graph(){
     }
     cout << endl;
 }
-int main() {
+
+void Test_Graph2(string filename){
+    Graph graph(filename, 6);
+    BreadthFirstPaths search_path(graph, 0);
+    for(int v = 0; v < graph.V(); v++){
+        cout << 0 << " to " << v << ": ";
+        if(search_path.HasPathTo(v)){
+            for(int point: search_path.PathTo(v)){
+                if(point == 0){
+                    cout << 0;
+                }else{
+                    cout << "-" << point;
+                }
+            }
+            cout << endl;
+        }
+    }
+    cout << endl;
+}
+int main(int argc, char* argv[]) {
     //Test_Sort();
     //Test_Zero_One_Bag();
-    Test_Graph();
+    Test_Graph2(argv[1]);
     return 0;
 }

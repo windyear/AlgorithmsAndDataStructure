@@ -7,6 +7,7 @@
 
 #include <list>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -18,7 +19,8 @@ private:
     int e; //边数目
     vector<list<int> > adj; //邻接表,这个指针有问题。之前用普通数组，类对象作为值传递的时候会调用复制构造函数，这时候会出问题。浅拷贝。
 public:
-    Graph(int v);
+    Graph(int v);//直接构造有v个顶点的图
+    Graph(string filename, int v);//一个从文件中读取图的结构的构造函数
     ~Graph();//删除new出来的内存空间
     int V();//返回点数
     int E();//返回边数

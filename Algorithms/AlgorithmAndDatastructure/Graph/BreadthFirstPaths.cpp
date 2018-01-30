@@ -9,6 +9,9 @@ BreadthFirstPaths::BreadthFirstPaths(Graph g, int v) {
     start_point = v;
     //初始化两个数组
     marked = new bool[g.V()];
+    for(int i = 0; i < g.V(); i++){
+        marked[i] = false;
+    }
     edge_to = new int[g.V()];
     BFS(g,start_point);
 }

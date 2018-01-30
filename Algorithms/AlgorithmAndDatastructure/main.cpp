@@ -4,6 +4,7 @@
 #include "Graph/Graph.h"
 #include "Graph/DepthFirstPaths.h"
 #include "Graph/BreadthFirstPaths.h"
+#include "Graph/DegreesOfSeparation.h"
 
 using namespace std;
 //主函数封装每个不同的测试函数，需要测试的时候就调用该函数
@@ -99,6 +100,8 @@ void Test_Graph2(string filename){
 int main(int argc, char* argv[]) {
     //Test_Sort();
     //Test_Zero_One_Bag();
-    Test_Graph2(argv[1]);
+    //Test_Graph2(argv[1]);
+    DegreesOfSeparation degrees_of_sepatation;
+    degrees_of_sepatation.TestDegrees(argv[2], argv[1], argv[3]);
     return 0;
 }

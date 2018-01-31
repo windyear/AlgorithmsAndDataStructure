@@ -8,6 +8,7 @@
 #include "Graph.h"
 
 //查看图中是否存在环：思路很简单，只需要做深度优先遍历，每次遍历邻点的时候查看是否被遍历过。
+//如果已经被遍历过而且不是父节点，证明有环。
 class Cycle {
 private:
     bool* marked;

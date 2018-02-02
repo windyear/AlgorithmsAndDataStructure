@@ -29,7 +29,7 @@ bool ConnectedComponents::Connected(int v, int w) {
 }
 
 int ConnectedComponents::Count() {
-    return count + 1;
+    return count;
 }
 
 int ConnectedComponents::Id(int v) {

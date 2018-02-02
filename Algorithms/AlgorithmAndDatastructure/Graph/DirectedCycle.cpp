@@ -28,7 +28,7 @@ DirectedCycle::~DirectedCycle() {
 }
 
 bool DirectedCycle::HasCycle() {
-    return path.empty();
+    return !path.empty();
 }
 
 vector<int> DirectedCycle::CyclePath() {

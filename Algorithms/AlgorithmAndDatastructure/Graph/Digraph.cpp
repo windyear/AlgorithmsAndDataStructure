@@ -12,7 +12,7 @@ Digraph::Digraph(int v): adj(v){
     //this->adj = new vector(v);//不要将stl和数组混合使用，比如这里指向list的指针，但是根本无法确定list的大小。可以改用vector。
     //后来发现原因应该是传入图对象是使用了默认的复制构造函数，而数组不能直接赋值。换成vector之后才可以。
 }
-Digraph::Digraph(string filename, int s){
+Digraph::Digraph(string filename){
     ifstream input(filename);
     //能够打开文件
     e = 0;
@@ -53,7 +53,12 @@ void Digraph::AddEdge(int v, int w) {
 }
 //直接返回一个列表，列表不大的话消耗不大。
 list<int> Digraph::Adj(int v) {
-    return adj[v];
+    //翻转链表是为了满足书本的Bag类型对数据的操作，使得测试结果跟书中的一样。进一步验证了拓扑排序和遍历的顺序会不同，如果获取的邻边的顺序不同。
+    list<int> reverse_list;
+    for(auto i: adj[v]){
+        reverse_list.push_front(i);
+    }
+    return reverse_list;
 }
 
 Digraph Digraph::Reverse() {

@@ -5,6 +5,9 @@
 #include "Graph/DepthFirstPaths.h"
 #include "Graph/BreadthFirstPaths.h"
 #include "Graph/DegreesOfSeparation.h"
+#include "Graph/SymbolDigraph.h"
+#include "Graph/Topological.h"
+#include "Graph/KosarajuSCC.h"
 
 using namespace std;
 //主函数封装每个不同的测试函数，需要测试的时候就调用该函数
@@ -97,11 +100,29 @@ void Test_Graph2(string filename){
     }
     cout << endl;
 }
+
+void TestTopological(string filename, char* sp){
+    SymbolDigraph symbol_digraph(filename, sp);
+    Digraph digraph = symbol_digraph.G();
+    Topological topological(digraph);
+    stack<int> topological_path = topological.Order();
+    cout << "The topological path is: " << endl;
+    //这里的size会发生变化，不能正确显示正确。
+    int length_of_path = topological_path.size();
+    for(int i = 0; i < length_of_path; i++){
+        cout << symbol_digraph.Name(topological_path.top()) << endl;
+        topological_path.pop();
+    }
+}
 int main(int argc, char* argv[]) {
     //Test_Sort();
     //Test_Zero_One_Bag();
     //Test_Graph2(argv[1]);
-    DegreesOfSeparation degrees_of_sepatation;
-    degrees_of_sepatation.TestDegrees(argv[2], argv[1], argv[3]);
+    //DegreesOfSeparation degrees_of_sepatation;
+    //degrees_of_sepatation.TestDegrees(argv[2], argv[1], argv[3]);
+    //TestTopological(argv[1], argv[2]);
+    Digraph digraph(argv[1]);
+    KosarajuSCC kosarajuSCC(digraph);
+    kosarajuSCC.TestSCC(digraph);
     return 0;
 }

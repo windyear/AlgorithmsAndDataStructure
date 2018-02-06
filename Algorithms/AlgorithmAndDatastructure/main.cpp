@@ -8,6 +8,9 @@
 #include "Graph/SymbolDigraph.h"
 #include "Graph/Topological.h"
 #include "Graph/KosarajuSCC.h"
+#include "EdgeWeightedGraph/EdgeWeightedGraph.h"
+#include "EdgeWeightedGraph/LazyPrim.h"
+#include "EdgeWeightedGraph/KruskalMST.h"
 
 using namespace std;
 //主函数封装每个不同的测试函数，需要测试的时候就调用该函数
@@ -114,6 +117,25 @@ void TestTopological(string filename, char* sp){
         topological_path.pop();
     }
 }
+
+void TestLazePrim(string filename){
+    EdgeWeightedGraph g(filename);
+    LazyPrim lazy_prim(g);
+    for(auto e: lazy_prim.Edges()){
+        cout << e.ToString() << endl;
+    }
+    cout << "The weight is:" << lazy_prim.Weight() << endl;
+}
+
+void TestKruskal(string filename){
+    EdgeWeightedGraph g(filename);
+    KruskalMST kruskalMST(g);
+    for(auto e: kruskalMST.Edges()){
+        cout << e.ToString() << endl;
+    }
+    cout << "The weight is:" << kruskalMST.Weight() << endl;
+}
+
 int main(int argc, char* argv[]) {
     //Test_Sort();
     //Test_Zero_One_Bag();
@@ -121,8 +143,9 @@ int main(int argc, char* argv[]) {
     //DegreesOfSeparation degrees_of_sepatation;
     //degrees_of_sepatation.TestDegrees(argv[2], argv[1], argv[3]);
     //TestTopological(argv[1], argv[2]);
-    Digraph digraph(argv[1]);
-    KosarajuSCC kosarajuSCC(digraph);
-    kosarajuSCC.TestSCC(digraph);
+    //Digraph digraph(argv[1]);
+    //KosarajuSCC kosarajuSCC(digraph);
+    //kosarajuSCC.TestSCC(digraph);
+    TestKruskal(argv[1]);
     return 0;
 }

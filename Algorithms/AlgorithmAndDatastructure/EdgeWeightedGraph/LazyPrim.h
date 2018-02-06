@@ -7,6 +7,7 @@
 
 #include "Edge.h"
 #include "../Priority_Queue/MinPQ.h"
+#include "EdgeWeightedGraph.h"
 #include <vector>
 #include <queue>
 
@@ -21,6 +22,14 @@ private:
     vector<Edge> mst;
     //直接使用stl的优先队列
     priority_queue<Edge> pq; //横切边
+    //一个私有成员函数为了添加节点以及还没访问节点之间的横切边。
+    void Visit(EdgeWeightedGraph g, int v);
+public:
+    LazyPrim(EdgeWeightedGraph g);
+    ~LazyPrim();
+    //返回最小生成树对应的所有边
+    vector<Edge> Edges();
+    double Weight();
 };
 
 

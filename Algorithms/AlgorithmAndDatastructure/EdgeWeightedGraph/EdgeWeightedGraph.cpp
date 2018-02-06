@@ -2,11 +2,31 @@
 // Created by windyear_office on 18-2-3.
 //
 
+#include <fstream>
 #include "EdgeWeightedGraph.h"
 
 EdgeWeightedGraph::EdgeWeightedGraph(int v): adj(v){
     this->v = v;
     this->e = 0;
+}
+
+//从文件中读取图
+EdgeWeightedGraph::EdgeWeightedGraph(string filename){
+    ifstream input(filename);
+    if(input){
+        int num_of_e;
+        input >> v >> num_of_e;
+        e = 0;
+        adj.resize(v);
+        for(int i = 0; i < num_of_e; i++){
+            int v, w;
+            double weight;
+            input >> v >> w >> weight;
+            Edge e(v, w, weight);
+            AddEdge(e);
+        }
+    }
+    input.close();
 }
 
 int EdgeWeightedGraph::E() const {
@@ -42,4 +62,8 @@ vector<Edge> EdgeWeightedGraph::Edges() {
         }
     }
     return all_edges;
+}
+
+EdgeWeightedGraph::~EdgeWeightedGraph() {
+
 }

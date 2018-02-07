@@ -25,8 +25,6 @@ public:
     void AddEdge(Edge edge);//添加一条边
     vector<Edge> Adj(int v);//返回迭代器，list的迭代器。
     vector<Edge> Edges();//返回所有边
-
-
 };
 
 

@@ -11,6 +11,8 @@
 #include "EdgeWeightedGraph/EdgeWeightedGraph.h"
 #include "EdgeWeightedGraph/LazyPrim.h"
 #include "EdgeWeightedGraph/KruskalMST.h"
+#include "EdgeWeightedGraph/EdgeWeightDiGraph.h"
+#include "EdgeWeightedGraph/DijkstraSP.h"
 
 using namespace std;
 //主函数封装每个不同的测试函数，需要测试的时候就调用该函数
@@ -136,6 +138,21 @@ void TestKruskal(string filename){
     cout << "The weight is:" << kruskalMST.Weight() << endl;
 }
 
+void TestDijkstra(string filename, int start_point){
+    EdgeWeightDiGraph g(filename);
+    DijkstraSP dijkstraSP(g, start_point);
+    for(int i = 0; i < g.V(); i++){
+        cout << start_point << " to " << i << ": ";
+        if(dijkstraSP.HasPathTo(i)){
+            for(auto e: dijkstraSP.PathTo(i)){
+                cout << e.ToString() << " ";
+            }
+            cout << endl;
+            continue;
+        }
+        cout << endl;
+    }
+}
 int main(int argc, char* argv[]) {
     //Test_Sort();
     //Test_Zero_One_Bag();
@@ -146,6 +163,10 @@ int main(int argc, char* argv[]) {
     //Digraph digraph(argv[1]);
     //KosarajuSCC kosarajuSCC(digraph);
     //kosarajuSCC.TestSCC(digraph);
-    TestKruskal(argv[1]);
+    //TestKruskal(argv[1]);
+    cout << "Please input the start point:" ;
+    int start_point;
+    cin >> start_point;
+    TestDijkstra(argv[1], start_point);
     return 0;
 }

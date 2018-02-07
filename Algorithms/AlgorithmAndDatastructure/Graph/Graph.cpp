@@ -22,6 +22,7 @@ Graph::Graph(string filename, int s){
         input >> v >> edge;
         //依次读取每条边
         //可以用resize进行重新分配内存，stl的容器都是自动管理内存的，不用管他们。
+        //自动初始化
         adj.resize(v);
         int point1, point2;
         for(int i = 0; i < edge; i++){

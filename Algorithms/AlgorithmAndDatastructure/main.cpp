@@ -147,8 +147,11 @@ void TestDijkstra(string filename, int start_point){
             for(auto e: dijkstraSP.PathTo(i)){
                 cout << e.ToString() << " ";
             }
+            cout << "The length of the path is :" << dijkstraSP.DistanceTo(i);
             cout << endl;
             continue;
+        }else{
+            cout << "there is no path between them.";
         }
         cout << endl;
     }

@@ -5,7 +5,7 @@
 #include <sstream>
 #include "DirectedEdge.h"
 
-DirectedEdge::DirectedEdge(int v, int w, int weight) {
+DirectedEdge::DirectedEdge(int v, int w, double weight) {
     this->v = v;
     this->w = w;
     this->weight = weight;

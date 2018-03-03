@@ -14,12 +14,11 @@ private:
     int w;
     double weight;
 public:
-    DirectedEdge(int v = 0, int w = 0, int weight = 0);
+    DirectedEdge(int v = 0, int w = 0, double weight = 0);
     int From();
     int To();
     string ToString();
     double Weight();
 };
-
 
 #endif //SORTALGORITHM_DIRECTEDEDGE_H

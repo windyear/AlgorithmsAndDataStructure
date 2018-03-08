@@ -37,7 +37,7 @@ int EdgeWeightDiGraph::V() const {
     return v;
 }
 
-vector<DirectedEdge> EdgeWeightDiGraph::Adj(int v) {
+vector<DirectedEdge> EdgeWeightDiGraph::Adj(int v) const {
     return adj[v];
 }
 

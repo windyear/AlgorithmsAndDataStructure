@@ -14,6 +14,7 @@ private:
     int w;
     double weight;
 public:
+    //默认构造函数在初始化STL容器的时候会用到。
     DirectedEdge(int v = 0, int w = 0, double weight = 0);
     int From();
     int To();

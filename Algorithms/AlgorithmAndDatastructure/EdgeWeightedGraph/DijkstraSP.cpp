@@ -60,6 +60,7 @@ int DijkstraSP::ToRelax(int start_point, int num_of_point) {
     return shortest;
 }
 
+//放松节点的操作是找到节点为出发点的边，然后比较一下加上这条边之后是否满足能够把路径起点到该边终点的距离变短。变短就更新距离。并且添加路径。
 void DijkstraSP::Relax(EdgeWeightDiGraph &g, int to_relax) {
     for(auto e: g.Adj(to_relax)){
         int to = e.To();

@@ -21,7 +21,7 @@ public:
     int V() const;//返回点数
     int E() const;//返回边数
     void AddEdge(DirectedEdge edge);//添加一条边
-    vector<DirectedEdge> Adj(int v);//返回迭代器，list的迭代器。
+    vector<DirectedEdge> Adj(int v) const;//返回迭代器，list的迭代器。
     vector<DirectedEdge> Edges();//返回所有边
 };
 

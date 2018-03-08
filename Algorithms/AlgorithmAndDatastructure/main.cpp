@@ -13,6 +13,7 @@
 #include "EdgeWeightedGraph/KruskalMST.h"
 #include "EdgeWeightedGraph/EdgeWeightDiGraph.h"
 #include "EdgeWeightedGraph/DijkstraSP.h"
+#include "EdgeWeightedGraph/edgeweighteddfsorder.h"
 
 using namespace std;
 //主函数封装每个不同的测试函数，需要测试的时候就调用该函数
@@ -156,6 +157,14 @@ void TestDijkstra(string filename, int start_point){
         cout << endl;
     }
 }
+
+void TestEWDOrder(string filename){
+    EdgeWeightDiGraph g(filename);
+    cout << "前序遍历如下：" << endl;
+    EdgeWeightedDFSOrder order(g);
+    //前序遍历
+    cout << endl;
+}
 int main(int argc, char* argv[]) {
     //Test_Sort();
     //Test_Zero_One_Bag();
@@ -167,9 +176,10 @@ int main(int argc, char* argv[]) {
     //KosarajuSCC kosarajuSCC(digraph);
     //kosarajuSCC.TestSCC(digraph);
     //TestKruskal(argv[1]);
-    cout << "Please input the start point:" ;
-    int start_point;
-    cin >> start_point;
-    TestDijkstra(argv[1], start_point);
+//    cout << "Please input the start point:" ;
+//    int start_point;
+//    cin >> start_point;
+//    TestDijkstra(argv[1], start_point);
+    TestEWDOrder(argv[1]);
     return 0;
 }

@@ -4,8 +4,11 @@
 #include "decorator/dark_roast.h"
 #include "decorator/mocha.h"
 #include "decorator/soy.h"
+#include "strategy/Duck.h"
+#include "strategy/mallard_duck.h"
 
-int main() {
+// 测试装饰者模式
+void TestDecorator(){
     std::cout << "Test decorator!" << std::endl;
     //先订一杯基础饮料，不带调料
     Beverage* espresso = new Espresso();
@@ -25,6 +28,21 @@ int main() {
     delete soy_mocha_dark_roast;
     delete mocha_dark_roast;
     delete dark_roast;
+}
 
+// 测试策略模式
+void TestStrategy(){
+    Duck* mallard = new MallardDuck();
+    mallard->PerformFly();
+    mallard->PerformQuack();
+    FlyBehavior* fb = new FlyWithWings();
+    mallard->SetFlyBehavior(fb);
+    mallard->PerformFly();
+    delete mallard;
+}
+
+int main() {
+    // TestDecorator();
+    TestStrategy();
     return 0;
 }

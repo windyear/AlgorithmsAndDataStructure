@@ -14,6 +14,8 @@
 #include "EdgeWeightedGraph/EdgeWeightDiGraph.h"
 #include "EdgeWeightedGraph/DijkstraSP.h"
 #include "EdgeWeightedGraph/edgeweighteddfsorder.h"
+#include "Search/sequential_searchST.h"
+#include "Search/test_search.h"
 
 using namespace std;
 //主函数封装每个不同的测试函数，需要测试的时候就调用该函数
@@ -180,6 +182,9 @@ int main(int argc, char* argv[]) {
 //    int start_point;
 //    cin >> start_point;
 //    TestDijkstra(argv[1], start_point);
-    TestEWDOrder(argv[1]);
+    //TestEWDOrder(argv[1]);
+    //SequentialSearchST<int, string> test;
+    //test.put(5, "a");
+    test_sqequential_search_ST(argv[1]);
     return 0;
 }

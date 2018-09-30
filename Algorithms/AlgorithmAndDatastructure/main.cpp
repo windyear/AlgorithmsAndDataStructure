@@ -185,6 +185,8 @@ int main(int argc, char* argv[]) {
     //TestEWDOrder(argv[1]);
     //SequentialSearchST<int, string> test;
     //test.put(5, "a");
-    test_sqequential_search_ST(argv[1]);
+    // test_sqequential_search_ST(argv[1]);
+    //Frequency_Counter(argv[1], argv[2]);
+    test_binary_searchST(argv[1]);
     return 0;
 }

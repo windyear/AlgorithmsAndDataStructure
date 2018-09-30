@@ -103,6 +103,10 @@ public:
         return first == nullptr;
     };
 
+    // 构造函数
+    SequentialSearchST():n(0), first(nullptr){
+
+    }
     // 析构函数需要delete整个链表
     ~SequentialSearchST(){
         for(Node* node = first; node != nullptr;){

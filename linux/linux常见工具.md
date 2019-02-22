@@ -62,3 +62,50 @@
 5. 进程管理
    - ps -ef; ps -ajx;top; pmap分析线程堆栈。
    - lsof配合参数查看被打开的文件，比如lsof -p 2329查看进程打开的文件。-u指定任务
+6. 网络工具
+   - netstat -at 列出所有tcp端口。-l有监听的端口。
+   - lsof一切皆文件lsof -i:port查看端口占用。
+   - scp -r 递归传输文件。wget -c 断点续传
+
+7. 用户管理
+
+   - useradd userdel usermod -G gName username加入新组，若去除原组，usermod -g gName username。
+   - chmod u+x file 对file所属用户增加执行权限。
+   - chown更改拥有者。
+
+8. 系统管理
+
+   - cat /proc/cpuinfo | grep processor | wc -l查看内存信息cat/proc/meminfo
+   - ipcs查看ipc情况-m共享内存-q -s信号量。
+   - ulimit各种限制比如coredump文件大小ulimit -c 临时改变coredump设为unlimited。需要写入.profile或.bashrc不用每次运行命令。
+
+9. **gdb调试coredump文件 **
+
+   - ```flow
+     st=>start: gdb elf core打开core
+     op1=>operation: bt打开堆栈
+     op2=>operation: info frame查看堆栈信息 f number+disassemble打开反汇编信息
+     op3=>operation: x address取地址信息
+     en=>end
+     
+     st->op1->op2->op3->en
+     ```
+
+   - 多线程调试core
+
+     ```flow
+     st=>start: gdb elf core打开core
+     op1=>operation: thread info查看线程　thread apply number(5) bt打开某个bt
+     op2=>operation: thread number进入某个线程
+     op3=>operation: 单线程调试方法
+     en=>end
+     
+     st->op1->op2->op3->en
+     ```
+
+10.  gdb常见操作
+
+    - b n r list显示源代码。info b显示断点 print打印变量
+    - pstack pid 利用gdb thread apply all bt打印进程栈。
+    - strace 跟踪系统调用的情况。stace -p pid如保存问文件strace -o output.txt -T -tt -e trace=all -p 28979
+

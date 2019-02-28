@@ -3,5 +3,8 @@ sem_w: POSIXSem_w.cpp
 	gcc $^ ${CFLAGS} -o $@
 sem_r: POSIXSem_r.cpp
 	gcc $^ ${CFLAGS} -o $@
+
+one_instance: OneInstanceFileLock.cpp
+	gcc $^ ${CFLAGS} -o $@
 clean:
 	rm *.o
